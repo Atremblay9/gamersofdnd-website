@@ -50,3 +50,33 @@ h1 {
 .login:hover {
   text-decoration: underline;
 }
+
+.description {
+  background-color: var(--orange);
+  font-size: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.pills, .inventory {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.pills h3 {
+  background-color: var(--yellow);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.inventory {
+  flex-direction: column;
+}
+
+.inventory h3 {
+  background-color: var(--red);
+  padding: 1rem;
+  border-radius: 5px;
+}
