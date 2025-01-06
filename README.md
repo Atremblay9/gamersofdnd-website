@@ -54,3 +54,16 @@ also a section to add to the current inventory
 
 I would like the Database to be in prisma, but we can create a temp DB with basic information for creation and testing :)
 
+**Font options for the site**
+
+Uncial Antiqua
+https://fonts.google.com/specimen/Uncial+Antiqua
+
+Rye
+https://fonts.google.com/specimen/Rye
+
+Almendra SC
+https://fonts.google.com/specimen/Almendra+SC
+
+Game of thrones font?
+https://fontmeme.com/fonts/game-of-thrones-font/
