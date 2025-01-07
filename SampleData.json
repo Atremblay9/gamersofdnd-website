@@ -117,6 +117,58 @@
         "quantity": 50,
         "condition": "New"
       }
+    ],
+    "currentRunningGames": [
+      {
+        "sessionName": "The City In Between",
+        "format": "5e",
+        "DM": "Alex",
+        "days": ["Wednesday", "Friday"],
+        "players": [
+          "Alice",
+          "Bob",
+          "Charlie",
+          "Diana",
+          "Eve"
+        ],
+        "maxPlayers": 8
+      },
+      {
+        "sessionName": "Shadows of Duskmourn",
+        "format": "Duskmourn",
+        "DM": "Bryce",
+        "days": ["Wednesday"],
+        "players": [
+          "Frank",
+          "Grace",
+          "Hank"
+        ],
+        "maxPlayers": 5
+      },
+      {
+        "sessionName": "Echoes in the Abyss",
+        "format": "Call of Cthulhu",
+        "DM": "Claire",
+        "days": ["Friday"],
+        "players": [
+          "Ivy",
+          "Jack",
+          "Kathy",
+          "Leo"
+        ],
+        "maxPlayers": 4
+      },
+      {
+        "sessionName": "Arcane Realms",
+        "format": "Ars Magica",
+        "DM": "Danielle",
+        "days": ["Wednesday", "Friday"],
+        "players": [
+          "Mona",
+          "Nina"
+        ],
+        "maxPlayers": 6
+      }
     ]
   }
 }
