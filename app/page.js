@@ -1,5 +1,6 @@
 "use client";
 
+import CurrentGames from "@/components/currentGames";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -37,8 +38,13 @@ export default function Home() {
         <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
       </div>
       <div className="pills">
-        <h3>Current Games Component</h3>
-        <h3>Request for Game Component</h3>
+        <div className="currentGames-Container">
+        <h3>Current Games</h3>
+          <CurrentGames />
+        </div>
+        <div className="request-Container">
+          <h3>Request for Game Component</h3>
+        </div>
       </div>
       <div className="inventory">
         <h3>Search current Inventory component</h3>
