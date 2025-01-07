@@ -26,6 +26,10 @@ h1 {
     -4px -4px 8px var(--red); 
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 .hero-container {
   display: flex;
   position: relative; /* Allows absolute positioning within this container */
@@ -65,10 +69,25 @@ h1 {
   padding: 2rem;
 }
 
-.pills h3 {
+.currentGames-Container, .request-Container {
   background-color: var(--yellow);
   padding: 1rem;
   border-radius: 5px;
+  width: 50%;
+  box-shadow: gray 2px 2px 5px;
+}
+
+.gameCard h4{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.gameCard{
+  background-color: var(--background);
+  border: #001514 solid 1px;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+
 }
 
 .inventory {
