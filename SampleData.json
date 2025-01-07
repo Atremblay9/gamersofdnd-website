@@ -1,0 +1,174 @@
+{  
+  "inventory": {
+    "books": [
+      {
+        "id": 1,
+        "title": "Player's Handbook",
+        "edition": "5th Edition",
+        "condition": "Good",
+        "quantity": 2
+      },
+      {
+        "id": 2,
+        "title": "Dungeon Master's Guide",
+        "edition": "5th Edition",
+        "condition": "Fair",
+        "quantity": 1
+      },
+      {
+        "id": 3,
+        "title": "Monster Manual",
+        "edition": "5th Edition",
+        "condition": "Excellent",
+        "quantity": 3
+      },
+      {
+        "id": 4,
+        "title": "Xanathar's Guide to Everything",
+        "edition": "5th Edition",
+        "condition": "Good",
+        "quantity": 1
+      },
+      {
+        "id": 5,
+        "title": "Tasha's Cauldron of Everything",
+        "edition": "5th Edition",
+        "condition": "Excellent",
+        "quantity": 2
+      }
+    ],
+    "figurines": [
+      {
+        "id": 1,
+        "name": "Human Fighter",
+        "material": "Plastic",
+        "painted": true,
+        "condition": "Good",
+        "quantity": 5
+      },
+      {
+        "id": 2,
+        "name": "Dragonborn Paladin",
+        "material": "Metal",
+        "painted": false,
+        "condition": "Excellent",
+        "quantity": 3
+      },
+      {
+        "id": 3,
+        "name": "Goblin",
+        "material": "Plastic",
+        "painted": true,
+        "condition": "Fair",
+        "quantity": 8
+      },
+      {
+        "id": 4,
+        "name": "Adult Red Dragon",
+        "material": "Resin",
+        "painted": false,
+        "condition": "Excellent",
+        "quantity": 1
+      },
+      {
+        "id": 5,
+        "name": "Beholder",
+        "material": "Plastic",
+        "painted": true,
+        "condition": "Good",
+        "quantity": 2
+      }
+    ],
+    "mapsAndTiles": [
+      {
+        "id": 1,
+        "name": "Modular Dungeon Tiles",
+        "type": "Cardboard",
+        "condition": "Good",
+        "quantity": 1
+      },
+      {
+        "id": 2,
+        "name": "Battle Map - Grasslands",
+        "type": "Vinyl",
+        "condition": "Excellent",
+        "quantity": 1
+      },
+      {
+        "id": 3,
+        "name": "Battle Map - Dungeon",
+        "type": "Vinyl",
+        "condition": "Fair",
+        "quantity": 1
+      }
+    ],   
+    "miscellaneous": [
+      {
+        "id": 1,
+        "name": "DM Screen",
+        "type": "5th Edition",
+        "condition": "Good",
+        "quantity": 1
+      },
+      {
+        "id": 3,
+        "name": "Character Sheets",
+        "type": "Pre-generated",
+        "quantity": 50,
+        "condition": "New"
+      }
+    ],
+    "currentRunningGames": [
+      {
+        "sessionName": "The City In Between",
+        "format": "5e",
+        "DM": "Alex",
+        "days": ["Wednesday", "Friday"],
+        "players": [
+          "Alice",
+          "Bob",
+          "Charlie",
+          "Diana",
+          "Eve"
+        ],
+        "maxPlayers": 8
+      },
+      {
+        "sessionName": "Shadows of Duskmourn",
+        "format": "Duskmourn",
+        "DM": "Bryce",
+        "days": ["Wednesday"],
+        "players": [
+          "Frank",
+          "Grace",
+          "Hank"
+        ],
+        "maxPlayers": 5
+      },
+      {
+        "sessionName": "Echoes in the Abyss",
+        "format": "Call of Cthulhu",
+        "DM": "Claire",
+        "days": ["Friday"],
+        "players": [
+          "Ivy",
+          "Jack",
+          "Kathy",
+          "Leo"
+        ],
+        "maxPlayers": 4
+      },
+      {
+        "sessionName": "Arcane Realms",
+        "format": "Ars Magica",
+        "DM": "Danielle",
+        "days": ["Wednesday", "Friday"],
+        "players": [
+          "Mona",
+          "Nina"
+        ],
+        "maxPlayers": 6
+      }
+    ]
+  }
+}
