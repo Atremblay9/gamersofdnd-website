@@ -66,6 +66,7 @@ h3 {
 
 .pills, .inventory {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 1rem;
   padding: 2rem;
@@ -75,7 +76,6 @@ h3 {
   background-color: lightgray;
   padding: 1rem;
   border-radius: 5px;
-  width: 50%;
   box-shadow: gray 2px 2px 5px;
 }
 
@@ -84,6 +84,7 @@ h3 {
   font-size: 1rem;
   font-weight: bold;
 }
+
 .gameCard{
   background-color: var(--background);
   border: var(--yellow) solid 2px;
@@ -93,9 +94,7 @@ h3 {
 
 }
 
-.inventory {
-  flex-direction: column;
-}
+
 
 .inventory h3 {
   background-color: var(--red);
