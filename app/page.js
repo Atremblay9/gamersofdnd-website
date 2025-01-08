@@ -1,6 +1,7 @@
 "use client";
 
 import CurrentGames from "@/components/currentGames";
+import InventoryList from "@/components/inventoryList";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -47,7 +48,11 @@ export default function Home() {
         </div>
       </div>
       <div className="inventory">
-        <h3>Search current Inventory component</h3>
+        <div>
+          <h3>Inventory</h3>
+          <InventoryList />
+        </div>
+
         <h3>Add to Inventory component</h3>
         
       </div>
