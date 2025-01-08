@@ -2,6 +2,7 @@
 
 import CurrentGames from "@/components/currentGames";
 import InventoryList from "@/components/inventoryList";
+import ModalFormButton from "@/components/ModalFormButton";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
       </div>
       <div className="description">
         <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+        <ModalFormButton />
       </div>
       <div className="pills">
         <div className="currentGames-Container">
