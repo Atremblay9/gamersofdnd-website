@@ -77,7 +77,7 @@ h3 {
   padding: 2rem;
 }
 
-.currentGames-Container, .request-Container, .inventory-container {
+.currentGames-Container, .request-Container, .inventory-container, .add-to-inventory{
   background-color: lightgray;
   padding: 1rem;
   border-radius: 5px;
@@ -99,14 +99,10 @@ h3 {
 
 }
 
-
-
-
 .inventory-table-container {
   display: flex;
   width: 100%;
-  overflow-x: auto; /* Enables horizontal scrolling if needed */
-
+  overflow-x: auto; 
 }
 .search-inventory{
   padding-top: 1rem;
@@ -114,7 +110,7 @@ h3 {
 
 .inventory-table {
   width: 100%;
-  border-collapse: collapse; /* Ensures clean table borders */
+  border-collapse: collapse; 
   background-color: var(--background);
 }
 
@@ -122,23 +118,23 @@ h3 {
   background-color: var(--yellow);
   padding: 0.5rem;
   position: sticky;
-  top: 0; /* Keeps headers sticky while scrolling */
+  top: 0; 
   z-index: 1;
   text-align: left;
 }
 
 .inventory-table tbody {
-  display: table-row-group; /* Restores default table structure */
-  max-height: 300px; /* Set a max height for scrollability */
-  overflow-y: auto; /* Vertical scrolling */
+  display: table-row-group; 
+  max-height: 300px;
+  overflow-y: auto; 
 }
 
 .inventory-table tbody tr:nth-child(odd) {
-  background-color: #f9f9f9; /* Light grey for odd rows */
+  background-color: #f9f9f9; 
 }
 
 .inventory-table tbody tr:nth-child(even) {
-  background-color: #ffffff; /* White for even rows */
+  background-color: #ffffff; 
 }
 
 .inventory-table td, .inventory-table th {
@@ -146,3 +142,33 @@ h3 {
   border: 1px solid #ddd;
 }
 
+.add-to-inventory {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-to-inventory button{
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: var(--background);
+  font-size: 1rem;
+  margin: 1rem auto;
+}
+
+.add-to-inventory button:hover{
+  background-color: var(--yellow);
+}
+
+.add-to-inventory input, textarea{
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.add-to-inventory label{
+  font-size: 1rem;
+  padding: 1rem 0rem;
+}
