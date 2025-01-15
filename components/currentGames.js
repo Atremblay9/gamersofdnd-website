@@ -3,10 +3,6 @@ import GameInfo from './gameinfo';
 
 export default function CurrentGames() {
 
-
-
-
-
     return (
       <div>
         <ul>

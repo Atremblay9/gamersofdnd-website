@@ -32,12 +32,15 @@ h3 {
 
 .hero-container {
   display: flex;
+  padding-top: 1rem;
+  flex-direction: column;
   position: relative; /* Allows absolute positioning within this container */
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  height: 100vh;
   background-image: url('../public/img/hero-croped.jpg');
   background-size: cover;
+  background-position: center;
   box-shadow: inset 0px 0px 30px black;
 }
 
@@ -57,11 +60,13 @@ h3 {
 }
 
 .description {
-  background-color: var(--orange);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--background);
+  border-radius: 5px;
+  margin: 1rem;
   font-size: 1.5rem;
   padding: 2rem;
-  text-align: center;
-  box-shadow: inset 0px 0px 20px black;
+
 }
 
 .pills, .inventory {
@@ -101,6 +106,10 @@ h3 {
   display: flex;
   width: 100%;
   overflow-x: auto; /* Enables horizontal scrolling if needed */
+
+}
+.search-inventory{
+  padding-top: 1rem;
 }
 
 .inventory-table {
