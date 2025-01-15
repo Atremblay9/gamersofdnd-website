@@ -107,7 +107,7 @@
           "id": 15,
           "name": "Character Sheets",
           "type": "Pre-generated",
-          "quantity": 50,
+          "quantity": "request",
           "condition": "New"
         }
       ],
@@ -123,8 +123,8 @@
       },
       {
         "id": 2,
-        "sessionName": "Shadows of Duskmourn",
-        "format": "Duskmourn",
+        "sessionName": "Shadows of space",
+        "format": "Pathfinder 2e",
         "DM": "Bryce",
         "days": "Wednesday",
         "players": ["Frank", "Grace", "Hank"],
@@ -141,7 +141,7 @@
       },
       {
         "id": 4,
-        "sessionName": "Arcane Realms",
+        "sessionName": "Arcane space",
         "format": "Ars Magica",
         "DM": "Danielle",
         "days": "Wednesday/Friday",

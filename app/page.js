@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </div>
       <div className="inventory">
-        <div>
+        <div className="inventory-container">
           <h3>Inventory</h3>
           <InventoryList />
         </div>

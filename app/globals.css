@@ -72,7 +72,7 @@ h3 {
   padding: 2rem;
 }
 
-.currentGames-Container, .request-Container {
+.currentGames-Container, .request-Container, .inventory-container {
   background-color: lightgray;
   padding: 1rem;
   border-radius: 5px;
@@ -96,8 +96,44 @@ h3 {
 
 
 
-.inventory h3 {
-  background-color: var(--red);
-  padding: 1rem;
-  border-radius: 5px;
+
+.inventory-table-container {
+  display: flex;
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
 }
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures clean table borders */
+  background-color: var(--background);
+}
+
+.inventory-table thead th {
+  background-color: var(--yellow);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0; /* Keeps headers sticky while scrolling */
+  z-index: 1;
+  text-align: left;
+}
+
+.inventory-table tbody {
+  display: table-row-group; /* Restores default table structure */
+  max-height: 300px; /* Set a max height for scrollability */
+  overflow-y: auto; /* Vertical scrolling */
+}
+
+.inventory-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+.inventory-table tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+.inventory-table td, .inventory-table th {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+}
+

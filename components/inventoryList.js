@@ -1,34 +1,34 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { inventory } from '../SampleData';
+import data from '../SampleData';
 
 export default function InventoryList() {
-
-    return (
-        <TableContainer component={Paper} sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-            <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Edition</TableCell>
-                <TableCell>Quantity</TableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {inventory.map((item) => (
-                <TableRow key={item.id}>
-                <TableCell>{item.name}</TableCell>
-                <TableCell>{item.edition}</TableCell>
-                <TableCell>{item.quantity}</TableCell>
-                </TableRow>
-            ))}
-            </TableBody>
-        </Table>
-        </TableContainer>
-    );
-    }
+  return (
+    <div className="inventory-table-container">
+      <div style={{ overflowY: 'scroll', maxHeight: '300px', width: '100%' }}>
+        <table className="inventory-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Edition</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.inventory.length > 0 ? (
+              data.inventory.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>{item.edition}</td>
+                  <td style={{'textAlign': 'center'}}>{item.quantity}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="3">No items available</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
