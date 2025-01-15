@@ -2,6 +2,7 @@
 
 import CurrentGames from "@/components/currentGames";
 import InventoryList from "@/components/inventoryList";
+import InventoryRequest from "@/components/inventoryRequest";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -34,9 +35,7 @@ export default function Home() {
       <div className="hero-container">
         <p className="login">Admin</p>
         <h1>Gamers Of Dungeons and Dragons</h1>
-      </div>
-      <div className="description">
-        <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+        <p className="description">This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
       </div>
       <div className="pills">
         <div className="currentGames-Container">
@@ -48,13 +47,14 @@ export default function Home() {
         </div>
       </div>
       <div className="inventory">
-        <div>
+        <div className="inventory-container">
           <h3>Inventory</h3>
           <InventoryList />
         </div>
-
-        <h3>Add to Inventory component</h3>
-        
+        <div className="add-to-inventory">
+          <h3>Add to Inventory</h3>
+          <InventoryRequest />
+        </div>
       </div>
     </div>
   );
