@@ -15,7 +15,7 @@ export default function InventoryManager() {
     setRequestForm({ ...requestForm, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate NAIT email
@@ -24,30 +24,42 @@ export default function InventoryManager() {
       return;
     }
 
-    console.log('Request submitted:', requestForm);
+    // Send POST request to the API
+    try {
+      const response = await fetch('/api/inventory', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestForm),
+      });
 
-    // Reset form
-    setRequestForm({
-      name: '',
-      discordName: '',
-      email: '',
-      itemName: '',
-      details: ''
-    });
-    setShowRequestForm(false);
+      if (response.ok) {
+        alert('Request submitted successfully!');
+        setRequestForm({
+          name: '',
+          discordName: '',
+          email: '',
+          itemName: '',
+          details: ''
+        });
+        setShowRequestForm(false);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || 'Something went wrong.');
+      }
+    } catch (error) {
+      console.error('Error submitting request:', error);
+      alert('Error submitting request');
+    }
   };
 
   return (
     <div>
-
-      
-        <p>If you'd like to request an item for the inventory, use the form below.</p>
-      
+      <p>If you'd like to request an item for the inventory, use the form below.</p>
 
       {/* Section: Search Inventory */}
       <section>
-        
-
         {/* Dropdown for "Item Request" */}
         <button onClick={() => setShowRequestForm(!showRequestForm)}>
           {showRequestForm ? 'Close Item Request Form' : 'Open Item Request Form'}
@@ -120,5 +132,4 @@ export default function InventoryManager() {
       </section>
     </div>
   );
-};
-
+}

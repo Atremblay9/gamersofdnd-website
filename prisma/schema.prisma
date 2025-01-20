@@ -39,3 +39,13 @@ model GamePlayers {
   game      RunningGames @relation(fields: [game_id], references: [id])
   game_id   Int
 }
+
+model InventoryRequest {
+  id           Int      @id @default(autoincrement())
+  name         String
+  discordName  String
+  email        String
+  itemName     String
+  details      String
+  createdAt    DateTime @default(now()) // Tracks when the request was made
+}
