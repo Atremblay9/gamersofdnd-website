@@ -12,3 +12,40 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Inventory {
+  id        Int      @id @default(autoincrement())
+  name      String
+  edition   String
+  condition String
+  quantity  Int
+  type      String?
+}
+
+model RunningGames {
+  id          Int           @id @default(autoincrement())
+  sessionName String
+  format      String
+  DM          String
+  days        String
+  maxPlayers  Int
+  players     GamePlayers[]
+}
+
+model GamePlayers {
+  id        Int       @id @default(autoincrement())
+  playerName String
+  game      RunningGames @relation(fields: [game_id], references: [id])
+  game_id   Int
+}
+
+model InventoryRequest {
+  id           Int      @id @default(autoincrement())
+  name         String
+  discordName  String
+  email        String
+  itemName     String
+  details      String
+  createdAt    DateTime @default(now()) // Tracks when the request was made
+}

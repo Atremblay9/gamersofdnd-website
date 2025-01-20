@@ -38,9 +38,9 @@ h3 {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('../public/img/hero-croped.jpg');
+  background-image: url('../public/img/hero-banner.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   box-shadow: inset 0px 0px 30px black;
 }
 
