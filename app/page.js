@@ -3,6 +3,7 @@
 import CurrentGames from "@/components/currentGames";
 import InventoryList from "@/components/inventoryList";
 import InventoryRequest from "@/components/inventoryRequest";
+import ModalFormButton from "@/components/ModalFormButton";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -35,7 +36,10 @@ export default function Home() {
       <div className="hero-container">
         <p className="login">Admin</p>
         <h1>Gamers Of Dungeons and Dragons</h1>
-        <p className="description">This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+      </div>
+      <div className="description">
+        <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+        <ModalFormButton />
       </div>
       <div className="pills">
         <div className="currentGames-Container">
