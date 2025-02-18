@@ -172,3 +172,11 @@ h3 {
   font-size: 1rem;
   padding: 1rem 0rem;
 }
+
+.btn-open-modal{
+  background-color: var(--red);
+}
+
+.btn-open-modal:hover{
+  background-color: var(--yellow);
+}

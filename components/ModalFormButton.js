@@ -65,11 +65,11 @@ export default function ModalFormButton() {
 
   return (
     <div>
-      <button onClick={() => setModalOpen(true)} className="btn-open-modal bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+      <button onClick={() => setModalOpen(true)} className="btn-open-modal text-white py-2 px-4 rounded">
         Request a Game
       </button>
       {isModalOpen && (
-        <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="modal-overlay fixed inset-0 z-40 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="modal bg-white p-6 rounded-lg w-96 relative">
             <button
               onClick={() => setModalOpen(false)}
