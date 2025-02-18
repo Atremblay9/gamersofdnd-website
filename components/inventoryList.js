@@ -1,11 +1,31 @@
 import React, { useState } from 'react';
-import data from '../SampleData';
+import { useEffect } from 'react';
 
 export default function InventoryList() {
   const [searchTerm, setSearchTerm] = useState('');
 
+  const [inventory, setInventory] = useState([]);
+  
+    // Fetch the data from the API when the component mounts
+    useEffect(() => {
+      const fetchInventory = async () => {
+        try {
+          const response = await fetch('/api/inventory');
+          if (!response.ok) {
+            throw new Error('Failed to fetch inventory');
+          }
+          const data = await response.json();
+          setInventory(data.inventory);
+        } catch (error) {
+          console.error('Error fetching Inventory:', error);
+        }
+      };
+  
+      fetchInventory();
+    }, []);
+
   // Filter the inventory based on the search term
-  const filteredInventory = data.inventory.filter((item) =>
+  const filteredInventory = inventory.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -29,6 +49,8 @@ export default function InventoryList() {
               <th>Name</th>
               <th>Edition</th>
               <th>Quantity</th>
+              <th>Condition</th>
+              <th>Type</th>
             </tr>
           </thead>
           <tbody>
@@ -38,6 +60,8 @@ export default function InventoryList() {
                   <td>{item.name}</td>
                   <td>{item.edition}</td>
                   <td style={{ textAlign: 'center' }}>{item.quantity}</td>
+                  <td>{item.condition}</td>
+                  <td>{item.type}</td>
                 </tr>
               ))
             ) : (

@@ -27,3 +27,32 @@ export async function POST(req) {
     await prisma.$disconnect();
   }
 }
+
+export async function GET() {
+  try {
+    const inventory = await prisma.inventory.findMany({
+      orderBy: {
+        id: 'asc',
+      },
+    });
+
+    console.log("Fetched Inventory:", inventory);
+
+    if (!inventory || inventory.length === 0) {
+      throw new Error("No inventory found");
+    }
+
+    return new Response(JSON.stringify({ inventory }), {
+      status: 200,
+    });
+  } catch (error) {
+    console.error("Error fetching inventory:", error);
+    return new Response(JSON.stringify({ error: 'Failed to fetch inventory' }), {
+      status: 500,
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+
