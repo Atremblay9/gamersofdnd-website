@@ -157,7 +157,7 @@ export default function ModalFormButton() {
               </label>
               <button
                 type="submit"
-                className="w-full bg-indigo-600 text-white py-2 px-4 rounded shadow hover:bg-indigo-700"
+                className="btn-submit w-full bg-indigo-600 text-white py-2 px-4 rounded shadow"
               >
                 Submit
               </button>

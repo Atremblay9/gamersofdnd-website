@@ -173,10 +173,10 @@ h3 {
   padding: 1rem 0rem;
 }
 
-.btn-open-modal{
+.btn-open-modal, .btn-submit{
   background-color: var(--red);
 }
 
-.btn-open-modal:hover{
+.btn-open-modal:hover, .btn-submit:hover{
   background-color: var(--yellow);
 }
