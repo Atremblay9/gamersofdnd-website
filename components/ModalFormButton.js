@@ -19,6 +19,7 @@ export default function ModalFormButton() {
       discord: event.target.discord.value,
     };
 
+    
     // Email validation: Check if the email ends with '@nait.ca'
     if (!formData.email.endsWith('@nait.ca')) {
       setEmailError('Please enter a valid NAIT email address.');
@@ -38,8 +39,28 @@ export default function ModalFormButton() {
     // TODO: Replace with Prisma DB submission
     console.log('Form Data:', formData);
 
-    // Close the modal after submission
-    setModalOpen(false);
+    try {
+      const response = await fetch('/api/gameRequest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Request submitted successfully!');
+        
+        setModalOpen(false);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || 'Something went wrong.');
+      }
+    } catch (error) {
+      console.error('Error submitting request:', error);
+      alert('Error submitting request');
+    }
+
   };
 
   return (

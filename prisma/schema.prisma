@@ -50,3 +50,14 @@ model InventoryRequest {
   details      String
   createdAt    DateTime @default(now()) // Tracks when the request was made
 }
+
+model GameRequest {
+  id           Int      @id @default(autoincrement())
+  name         String
+  format       String
+  days         String[]
+  experience   String
+  email        String
+  discord      String
+  createdAt    DateTime @default(now()) // Tracks when the request was made
+}
