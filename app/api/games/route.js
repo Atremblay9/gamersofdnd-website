@@ -6,8 +6,8 @@ export async function GET() {
   try {
     // Fetch current running games from the database
     const currentRunningGames = await prisma.runningGames.findMany({
-      include: {
-        players: true, // To include related players if needed
+      orderBy: {
+        id: 'asc',
       },
     });
 
