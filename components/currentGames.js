@@ -29,6 +29,7 @@ export default function CurrentGames() {
           <GameInfo key={game.id} game={game} />
         ))}
       </ul>
+      
     </div>
   );
 }

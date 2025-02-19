@@ -36,7 +36,7 @@ export async function GET() {
       },
     });
 
-    console.log("Fetched Inventory:", inventory);
+    console.log("Fetched Inventory");
 
     if (!inventory || inventory.length === 0) {
       throw new Error("No inventory found");
