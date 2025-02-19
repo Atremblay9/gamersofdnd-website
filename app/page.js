@@ -43,11 +43,11 @@ export default function Home() {
       
       <div className="pills">
         <div className="currentGames-Container">
-        <h3>Current Games</h3>
+          <div className="currentGames-header">
+            <h3>Current Games</h3>
+            <ModalFormButton />
+          </div>
           <CurrentGames />
-        </div>
-        <div className="request-Container">
-          <h3><ModalFormButton /></h3>
         </div>
       </div>
       <div className="inventory">
