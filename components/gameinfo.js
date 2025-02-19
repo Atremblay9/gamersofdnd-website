@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function GameInfo({ game, editable }) {
-  const [currentgamePlayers, setCurrentGamePlayers] = useState([]);
+  const [currentGamePlayers, setCurrentGamePlayers] = useState([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [editedGame, setEditedGame] = useState({ ...game });
   const [newPlayer, setNewPlayer] = useState("");
@@ -12,7 +12,6 @@ export default function GameInfo({ game, editable }) {
       setCurrentGamePlayers([]); // Reset before fetching
       const response = await fetch(`/api/gamePlayers?game_id=${game.id}`);
       const data = await response.json();
-      console.log("Updated State:", data.currentGamePlayers); // Debug state update
       setCurrentGamePlayers([...data.currentGamePlayers]); // Ensure array format
     } catch (error) {
       console.error('Error fetching players:', error);
@@ -31,14 +30,21 @@ export default function GameInfo({ game, editable }) {
   };
 
   const handleAddPlayer = () => {
-    if (newPlayer.trim() && !gamePlayers.includes(newPlayer)) {
-      setCurrentgamePlayers([...currentgamePlayers, newPlayer.trim()]);
-      setNewPlayer("");
-    }
-  };
+  if (newPlayer.trim() && !currentGamePlayers.some(player => player.playerName === newPlayer)) {
+    const newPlayerObj = { 
+      id: currentGamePlayers.length + 1, // Temporary ID
+      playerName: newPlayer.trim(),
+      game_id: game.id
+    };
+
+    setCurrentGamePlayers([...currentGamePlayers, newPlayerObj]); 
+    setNewPlayer(""); // Reset input field
+  }
+};
+
 
   const handleRemovePlayer = (player) => {
-    setCurrentgamePlayers(currentgamePlayers.filter((p) => p !== player));
+    setCurrentGamePlayers(currentGamePlayers.filter((p) => p !== player));
   };
 
   const handleSubmit = async () => {
@@ -46,7 +52,7 @@ export default function GameInfo({ game, editable }) {
       const response = await fetch('/api/updateGame', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...editedGame, currentgamePlayers }),
+        body: JSON.stringify({ ...editedGame, currentGamePlayers }),
       });
       const data = await response.json();
       console.log('Game updated:', data);
@@ -64,10 +70,10 @@ export default function GameInfo({ game, editable }) {
         <p>DM: {game.DM}</p>
         <p>Format: {game.format}</p>
         <p>Day(s): {game.days}</p>
-        <p>Openings: {game.maxPlayers - currentgamePlayers.length}</p>
+        <p>Openings: {game.maxPlayers - currentGamePlayers.length}</p>
         <p>Players:</p>
         <ul>
-          {currentgamePlayers.map((player, index) => (
+          {currentGamePlayers.map((player, index) => (
             <li key={index}>- {player.playerName}</li>
           ))}
         </ul>
@@ -87,7 +93,7 @@ export default function GameInfo({ game, editable }) {
 
                 <h3>Players:</h3>
                 <ul className="player-list">
-                  {currentgamePlayers.map((player, index) => (
+                  {currentGamePlayers.map((player, index) => (
                     <li key={index}>
                       {player.playerName} <button type="button" onClick={() => handleRemovePlayer(player)}>Remove</button>
                     </li>
