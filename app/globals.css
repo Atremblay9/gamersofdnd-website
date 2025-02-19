@@ -84,7 +84,7 @@ h3 {
   box-shadow: gray 2px 2px 5px;
 }
 
-.currentGames-header{
+.currentGames-header, .inventory-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -185,4 +185,102 @@ h3 {
 
 .btn-open-modal:hover, .btn-submit:hover{
   background-color: var(--yellow);
+}
+
+
+
+.btn-edit{
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: var(--background);
+  font-size: 1rem;
+  float: right;
+}
+.game-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 75%;
+  height: 75%;
+  overflow: auto;
+  background-color: var(--background);
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+.game-modal .modal-content h2{
+  color: var(--red);
+  font-size: 2rem;
+  text-align: center;
+  
+}
+
+
+
+
+.game-modal .modal-content form {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.game-modal .modal-content form label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-modal .modal-content form label input{
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+
+
+.game-modal .modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.game-modal .modal-actions button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: var(--background);
+  font-size: 1rem;
+}
+
+.game-modal .modal-actions button:hover {
+  background-color: var(--yellow);
+}
+
+
+.game-modal .player-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: var(--background);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+}
+
+.game-modal .player-list li button {
+  color: var(--red);
+}
+.game-modal .player-list li button:hover {
+  color: var(--background);
+  background-color: var(--red);
+  border-radius: 5px;
+}
+
+.add-player-input{
+  border-radius: 5px;
 }

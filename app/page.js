@@ -5,6 +5,7 @@ import InventoryList from "@/components/inventoryList";
 import InventoryRequest from "@/components/inventoryRequest";
 import ModalFormButton from "@/components/ModalFormButton";
 import { useEffect } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   useEffect(() => {
@@ -31,10 +32,15 @@ export default function Home() {
     checkUserLocation();
   }, []); // Empty dependency array ensures the check runs once on page load
 
+  const router = useRouter();
+  const goToDashboard = () => {
+    router.push('/dashboard');
+  }
+
   return (
     <div>
       <div className="hero-container">
-        <p className="login">Admin</p>
+        <button className="login" onClick={goToDashboard}>Admin</button>
         <h1>Gamers Of Dungeons and Dragons</h1>
         <div className="description">
         <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
