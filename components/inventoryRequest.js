@@ -26,7 +26,7 @@ export default function InventoryManager() {
 
     // Send POST request to the API
     try {
-      const response = await fetch('/api/inventory', {
+      const response = await fetch('/api/inventoryRequest', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

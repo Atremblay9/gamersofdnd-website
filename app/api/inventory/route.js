@@ -1,32 +1,56 @@
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-
-export async function POST(req) {
+export async function POST(request) {
   try {
-    const { name, discordName, email, itemName, details } = await req.json();
+    console.log("Received request:", request);
+    
+    const body = await request.json();
+    console.log("Parsed JSON body:", body);
 
-    // Create a new inventory request in the database
-    const newRequest = await prisma.inventoryRequest.create({
-      data: {
-        name,
-        discordName,
-        email,
-        itemName,
-        details,
-      },
-    });
+    if (!body || typeof body !== "object") {
+      console.error("Invalid request payload");
+      return new Response(JSON.stringify({ error: "Invalid request payload" }), { status: 400 });
+    }
 
-    return new Response(JSON.stringify({ newRequest }), { status: 200 });
+    const { id, name, edition, condition, quantity, type } = body;
+    const quantityNum = Number(body.quantity);
+if (isNaN(quantityNum)) {
+  return new Response(JSON.stringify({ error: "Invalid quantity" }), { status: 400 });
+}
+
+    if (!name || !edition || isNaN(quantityNum) || !condition || !type) {
+      console.error("Missing required fields:", body);
+      return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
+    }
+
+    let result;
+
+    if (id) {
+      result = await prisma.inventory.update({
+        where: { id: Number(id) },
+        data: { name, edition, condition, quantity : quantityNum, type },
+      });
+    } else {
+      result = await prisma.inventory.create({
+        data: { name, edition, condition, quantity : quantityNum, type },
+      });
+    }
+
+    console.log("Successfully added item:", result);
+    return new Response(JSON.stringify(result), { status: 200 });
+
   } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ error: 'Failed to submit the request' }), {
+    console.error("API Error:", error);
+    return new Response(JSON.stringify({ error: "Failed to add to inventory", details: error.message }), {
       status: 500,
     });
   } finally {
     await prisma.$disconnect();
   }
 }
+
+
 
 export async function GET() {
   try {

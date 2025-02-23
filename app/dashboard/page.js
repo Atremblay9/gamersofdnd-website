@@ -1,7 +1,7 @@
 "use client";
 
 import CurrentGames from "@/components/currentGames";
-import InventoryList from "@/components/inventoryList";
+import InventoryListAdmin from "@/components/inventoryListAdmin";
 
 
 export default function Home() {
@@ -30,11 +30,8 @@ export default function Home() {
         </div>
         <div className="inventory">
           <div className="inventory-container">
-            <div className="inventory-header">
-              <h3>Inventory</h3>
-              <button>Add to Inventory</button>
-            </div>
-            <InventoryList />
+
+            <InventoryListAdmin />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import GameInfo from './gameinfo';
+import GameInfoAdmin from './gameinfoAdmin';
 
 export default function CurrentGames(isDashboard) {
   const [currentRunningGames, setCurrentRunningGames] = useState([]);
@@ -29,12 +30,23 @@ export default function CurrentGames(isDashboard) {
 
   return (
     <div>
-      <ul>
-        {currentRunningGames.map((game) => (
-          <GameInfo key={game.id} game={game} editable={isDashboard} />
-        ))}
-      </ul>
-      
+      {!isDashboard && (
+        <div>
+          <h2>Current Running Games</h2>
+          <ul>
+            {currentRunningGames.map((game) => (
+              <GameInfo key={game.id} game={game} />
+            ))}
+          </ul>
+        </div>
+      )}
+      <div>
+        <ul>
+          {currentRunningGames.map((game) => (
+            <GameInfoAdmin key={game.id} game={game} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
