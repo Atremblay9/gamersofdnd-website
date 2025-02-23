@@ -21,7 +21,7 @@ model Inventory {
   edition   String
   condition String
   quantity  Int
-  type      String?
+  type      String
 }
 
 model RunningGames {
