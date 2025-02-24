@@ -53,7 +53,7 @@ export default function Home() {
             <h3>Current Games</h3>
             <ModalFormButton />
           </div>
-          <CurrentGames isDashboard={false} />
+          <CurrentGames isDashboard={false}/>
         </div>
       </div>
       <div className="inventory">

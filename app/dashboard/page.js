@@ -1,7 +1,9 @@
 "use client";
 
 import CurrentGames from "@/components/currentGames";
+import GameRequestAdmin from "@/components/gameRequestAdmin";
 import InventoryListAdmin from "@/components/inventoryListAdmin";
+import InventoryRequestAdmin from "@/components/inventoryRequestAdmin";
 
 
 export default function Home() {
@@ -28,10 +30,22 @@ export default function Home() {
             <CurrentGames isDashboard={true} />
           </div>
         </div>
+        <div className="gameRequestAdmin">
+          <div className="gameRequestAdmin-container">
+            <h3>Game Request Admin</h3>
+            <GameRequestAdmin />
+          </div>
+        </div>
         <div className="inventory">
           <div className="inventory-container">
 
             <InventoryListAdmin />
+          </div>
+        </div>
+                <div className="inventoryRequestAdmin">
+          <div className="inventoryRequestAdmin-container">
+            <h3>Inventory Request Admin</h3>
+            <InventoryRequestAdmin />
           </div>
         </div>
       </div>

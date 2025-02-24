@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 export default function GameInfo({ game }) {
   const [currentGamePlayers, setCurrentGamePlayers] = useState([]);
-  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
   const fetchPlayers = async () => {

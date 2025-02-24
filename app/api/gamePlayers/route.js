@@ -16,7 +16,6 @@ export async function GET(request) {
       orderBy: { id: 'asc' },
     });
 
-    console.log('Fetched Game Players', currentGamePlayers);
     return new Response(JSON.stringify({ currentGamePlayers }), { status: 200 });
   } catch (error) {
     console.error(error);
