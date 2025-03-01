@@ -49,7 +49,7 @@ const handleEditButtonClick = () => setModalOpen(true);
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('/api/updateGame', {
+      const response = await fetch('/api/games', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...editedGame, currentGamePlayers }),
@@ -61,6 +61,21 @@ const handleEditButtonClick = () => setModalOpen(true);
       console.error('Error updating game:', error);
     }
   };
+
+  const handleArchive = async () => {
+    try {
+      const response = await fetch('/api/games', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: game.id,  archived: true }),
+      });
+      const data = await response.json();
+      console.log('Game archived:', data);
+    } catch (error) {
+      console.error('Error archiving game:', error);
+    }
+
+  }
 
   if(isDashboard) {
   return (
@@ -79,6 +94,7 @@ const handleEditButtonClick = () => setModalOpen(true);
           ))}
         </ul>
       </li>
+
     
       {isModalOpen && (
         <div className='modal-overlay bg-opacity-50 fixed inset-0 z-40 bg-black flex items-center justify-center'>
@@ -105,6 +121,7 @@ const handleEditButtonClick = () => setModalOpen(true);
 
                 <div className="modal-actions">
                   <button type="button" onClick={handleSubmit}>Save Changes</button>
+                  <button className='archive-btn' onClick={handleArchive}>Archive</button>
                   <button type="button" onClick={handleCloseModal}>Cancel</button>
                 </div>
               </form>

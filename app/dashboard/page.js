@@ -5,7 +5,7 @@ import GameRequestAdmin from "@/components/gameRequestAdmin";
 import InventoryList from "@/components/inventoryList";
 import InventoryRequestAdmin from "@/components/inventoryRequestAdmin";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
@@ -28,10 +28,6 @@ export default function Home() {
       <div>
         <div className="pills">
           <div className="currentGames-Container">
-            <div className="currentGames-header">
-              <h3>Current Games</h3>
-              <button>Add Game</button>
-            </div>
             <CurrentGames isDashboard={true} />
           </div>
         </div>
@@ -43,11 +39,10 @@ export default function Home() {
         </div>
         <div className="inventory">
           <div className="inventory-container">
-
             <InventoryList isDashboard={true} />
           </div>
         </div>
-                <div className="inventoryRequestAdmin">
+        <div className="inventoryRequestAdmin">
           <div className="inventoryRequestAdmin-container">
             <h3>Inventory Request Admin</h3>
             <InventoryRequestAdmin />
