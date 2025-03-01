@@ -6,6 +6,9 @@ export async function GET() {
   try {
     // Fetch current running games from the database
     const currentRunningGames = await prisma.runningGames.findMany({
+      where: {
+        archived: false,
+      },
       orderBy: {
         id: 'asc',
       },
@@ -28,27 +31,27 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const { game_id, gameName, status } = await request.json();
+    const { id, sessionName, format, DM, days, maxPlayers, archived } = await request.json();
 
-    if (!gameName || !status) {
+    if (archived === undefined) {
       return new Response(
-        JSON.stringify({ error: 'Missing gameName or status' }),
+        JSON.stringify({ error: 'Missing data' }),
         { status: 400 }
       );
     }
 
     let result;
 
-    if (game_id) {
+    if (id) {
       // 🔹 Update existing game
       result = await prisma.runningGames.update({
-        where: { id: Number(game_id) },
-        data: { gameName, status },
+        where: { id: Number(id) },
+        data: { sessionName, format, DM, days, maxPlayers: Number(maxPlayers), archived },
       });
     } else {
       // 🔹 Create new game
       result = await prisma.runningGames.create({
-        data: { gameName, status },
+        data: {sessionName, format, DM, days, maxPlayers: Number(maxPlayers), archived},
       });
     }
 

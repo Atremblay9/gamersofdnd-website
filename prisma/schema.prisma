@@ -32,6 +32,7 @@ model RunningGames {
   days        String
   maxPlayers  Int
   players     GamePlayers[]
+  archived    Boolean       @default(false)
 }
 
 model GamePlayers {
@@ -49,6 +50,8 @@ model InventoryRequest {
   itemName     String
   details      String
   createdAt    DateTime @default(now()) // Tracks when the request was made
+  contacted    Boolean       @default(false)
+  resolved    Boolean       @default(false)
 }
 
 model GameRequest {
@@ -60,6 +63,8 @@ model GameRequest {
   email        String
   discord      String
   createdAt    DateTime @default(now()) // Tracks when the request was made
+  contacted    Boolean       @default(false)
+  resolved    Boolean       @default(false)
 }
 
 model User {
