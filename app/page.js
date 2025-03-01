@@ -66,7 +66,7 @@ export default function Home() {
       <div className="inventory">
         <div className="inventory-container">
           <h3>Inventory</h3>
-          <InventoryList />
+          <InventoryList isDashboard={false} />
         </div>
         <div className="add-to-inventory">
           <h3>Add to Inventory</h3>

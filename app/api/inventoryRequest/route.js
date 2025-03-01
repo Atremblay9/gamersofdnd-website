@@ -39,7 +39,7 @@ export async function GET() {
     console.log("Fetched Inventory requests");
 
     if (!inventoryRequest || inventoryRequest.length === 0) {
-      throw new Error("No inventory requests found");
+      console.log("No inventory requests found");
     }
 
     return new Response(JSON.stringify({ inventoryRequest }), {
