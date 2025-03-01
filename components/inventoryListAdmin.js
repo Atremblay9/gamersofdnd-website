@@ -8,19 +8,6 @@ export default function InventoryListAdmin() {
 
   // Fetch inventory only on component mount (no dependency)
   useEffect(() => {
-    const fetchInventory = async () => {
-      try {
-        const response = await fetch('/api/inventory');
-        if (!response.ok) {
-          throw new Error('Failed to fetch inventory');
-        }
-        const data = await response.json();
-        setInventory(data.inventory);
-      } catch (error) {
-        console.error('Error fetching inventory:', error);
-      }
-    };
-
     fetchInventory();
   }, []);  // Empty dependency array ensures it runs only once on component mount
 
@@ -28,7 +15,7 @@ export default function InventoryListAdmin() {
     try {
       const response = await fetch('/api/inventory');
       if (!response.ok) {
-        throw new Error('Failed to fetch inventory');
+        console.log('Failed to fetch inventory');
       }
       const data = await response.json();
       setInventory(data.inventory);  // Update state with the new inventory data
@@ -113,11 +100,11 @@ export default function InventoryListAdmin() {
       fetchInventory();  // Trigger a re-fetch after editing an item's condition
     }
   };
-
+ 
   const filteredInventory = inventory.filter((item) =>
     item && item.name && item.name.toLowerCase().includes(searchTerm.toLowerCase()) // Add null/undefined check for item and item.name
   );
-
+ 
   return (
     <div className='search-inventory'>
       <div className="inventory-header">

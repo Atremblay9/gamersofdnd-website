@@ -12,7 +12,7 @@ export default function InventoryList() {
         try {
           const response = await fetch('/api/inventory');
           if (!response.ok) {
-            throw new Error('Failed to fetch inventory');
+            console.log('Failed to fetch inventory');
           }
           const data = await response.json();
           setInventory(data.inventory);
@@ -25,10 +25,11 @@ export default function InventoryList() {
     }, []);
 
   // Filter the inventory based on the search term
-  const filteredInventory = inventory.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
+    const filteredInventory = inventory.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  ) ;
+  
   return (
     <div className='search-inventory'>
       {/* Search Input */}
