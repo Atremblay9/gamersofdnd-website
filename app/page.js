@@ -51,7 +51,8 @@ export default function Home() {
         </div>
       </div>
 
-      {showLoginModal && <LoginModal />}
+      {showLoginModal && <div><LoginModal />
+      <button className="close-modal" onClick={() => setShowLoginModal(false)}>close</button></div>}
       
       <div className="pills">
         <div className="currentGames-Container">
