@@ -69,7 +69,7 @@ h3 {
 
 }
 
-.pills, .inventory {
+.pills, .inventory , .gameRequestAdmin, .inventoryRequestAdmin{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,17 +77,18 @@ h3 {
   padding: 2rem;
 }
 
-.currentGames-Container, .inventory-container, .add-to-inventory{
+.currentGames-Container, .inventory-container, .add-to-inventory, .gameRequestAdmin-container, .inventoryRequestAdmin-container{
   background-color: lightgray;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: gray 2px 2px 5px;
 }
 
-.currentGames-header{
+.currentGames-header, .inventory-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 0 1rem 0;
 }
 
 .gameCard h4{
@@ -96,7 +97,7 @@ h3 {
   font-weight: bold;
 }
 
-.gameCard{
+.gameCard, .gameRequestCard{
   background-color: var(--background);
   border: var(--yellow) solid 2px;
   border-radius: 5px;
@@ -185,4 +186,141 @@ h3 {
 
 .btn-open-modal:hover, .btn-submit:hover{
   background-color: var(--yellow);
+}
+
+
+
+.btn-edit{
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: var(--background);
+  font-size: 1rem;
+  float: right;
+}
+.game-modal, .inventory-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 75%;
+  height: 75%;
+  overflow: auto;
+  background-color: var(--background);
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+.game-modal .modal-content h2, .inventory-modal .modal-content h2 {
+  color: var(--red);
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+
+
+.game-modal .modal-content form, .inventory-modal .modal-content {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.game-modal .modal-content form label, .inventory-modal .modal-content label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-modal .modal-content form label input{
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+.inventory-modal .modal-content label input{
+  width: 50%;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+
+
+.game-modal .modal-actions, .inventory-modal .modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.game-modal .modal-actions button, .inventory-modal .modal-actions button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--red);
+  color: var(--background);
+  font-size: 1rem;
+}
+
+.game-modal .modal-actions button:hover {
+  background-color: var(--yellow);
+}
+
+
+.game-modal .player-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: var(--background);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+}
+
+.game-modal .player-list li button {
+  color: var(--red);
+}
+.game-modal .player-list li button:hover {
+  color: var(--background);
+  background-color: var(--red);
+  border-radius: 5px;
+}
+
+.add-player-input{
+  border-radius: 5px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  color: var(--background);
+  border-radius: 5px;
+  max-width: 300px;
+}
+.login:hover {
+  text-decoration: none;
+}
+
+
+.login-form input{
+  color: black;
+}
+
+.close-modal{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  background-color: var(--red);
+  color: var(--background);
+  border-radius: 5px;
+}
+
+.login-form button{
+  background-color: var(--red);
+  color: var(--background);
+  padding: 0.5rem;
+  border-radius: 5px;
 }

@@ -4,9 +4,18 @@ import CurrentGames from "@/components/currentGames";
 import InventoryList from "@/components/inventoryList";
 import InventoryRequest from "@/components/inventoryRequest";
 import ModalFormButton from "@/components/ModalFormButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import LoginModal from "@/components/loginModal";
+
 
 export default function Home() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const showLoginModalHandler = () => {
+    setShowLoginModal(true);
+  }
+
+
   useEffect(() => {
     // Function to check the user's country using ipapi
     const checkUserLocation = async () => {
@@ -31,15 +40,19 @@ export default function Home() {
     checkUserLocation();
   }, []); // Empty dependency array ensures the check runs once on page load
 
+
   return (
     <div>
       <div className="hero-container">
-        <p className="login">Admin</p>
+        <button className="login" onClick={showLoginModalHandler}>Admin</button>
         <h1>Gamers Of Dungeons and Dragons</h1>
         <div className="description">
-        <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+          <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+        </div>
       </div>
-      </div>
+
+      {showLoginModal && <div><LoginModal />
+      <button className="close-modal" onClick={() => setShowLoginModal(false)}>close</button></div>}
       
       <div className="pills">
         <div className="currentGames-Container">
@@ -47,7 +60,7 @@ export default function Home() {
             <h3>Current Games</h3>
             <ModalFormButton />
           </div>
-          <CurrentGames />
+          <CurrentGames isDashboard={false}/>
         </div>
       </div>
       <div className="inventory">

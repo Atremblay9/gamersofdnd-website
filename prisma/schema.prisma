@@ -21,7 +21,7 @@ model Inventory {
   edition   String
   condition String
   quantity  Int
-  type      String?
+  type      String
 }
 
 model RunningGames {
@@ -60,4 +60,9 @@ model GameRequest {
   email        String
   discord      String
   createdAt    DateTime @default(now()) // Tracks when the request was made
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   
 }

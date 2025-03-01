@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react';
-import GameInfo from './gameinfo';
 
-export default function CurrentGames() {
+import GameInfo from './gameinfo';
+import GameInfoAdmin from './gameinfoAdmin';
+
+export default function CurrentGames({isDashboard}) {
   const [currentRunningGames, setCurrentRunningGames] = useState([]);
+
+  
+
+  
 
   // Fetch the data from the API when the component mounts
   useEffect(() => {
@@ -24,12 +30,23 @@ export default function CurrentGames() {
 
   return (
     <div>
-      <ul>
-        {currentRunningGames.map((game) => (
-          <GameInfo key={game.id} game={game} />
-        ))}
-      </ul>
-      
+      {!isDashboard && (
+        <div>
+          <ul>
+            {currentRunningGames.map((game) => (
+              <GameInfo key={game.id} game={game} />
+            ))}
+          </ul>
+        </div>
+      )}
+      {isDashboard && (
+      <div>
+        <ul>
+          {currentRunningGames.map((game) => (
+            <GameInfoAdmin key={game.id} game={game} />
+          ))}
+        </ul>
+      </div>)}
     </div>
   );
 }
