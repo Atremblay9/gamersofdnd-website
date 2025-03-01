@@ -289,3 +289,16 @@ h3 {
 .add-player-input{
   border-radius: 5px;
 }
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  color: black;
+  border-radius: 5px;
+}
+
+.login-form input{
+  color: black;
+}

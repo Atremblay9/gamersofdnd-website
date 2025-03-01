@@ -4,10 +4,18 @@ import CurrentGames from "@/components/currentGames";
 import InventoryList from "@/components/inventoryList";
 import InventoryRequest from "@/components/inventoryRequest";
 import ModalFormButton from "@/components/ModalFormButton";
-import { useEffect } from "react";
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from "react";
+import LoginModal from "@/components/loginModal";
+
 
 export default function Home() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const showLoginModalHandler = () => {
+    setShowLoginModal(true);
+  }
+
+
   useEffect(() => {
     // Function to check the user's country using ipapi
     const checkUserLocation = async () => {
@@ -32,20 +40,18 @@ export default function Home() {
     checkUserLocation();
   }, []); // Empty dependency array ensures the check runs once on page load
 
-  const router = useRouter();
-  const goToDashboard = () => {
-    router.push('/dashboard');
-  }
 
   return (
     <div>
       <div className="hero-container">
-        <button className="login" onClick={goToDashboard}>Admin</button>
+        <button className="login" onClick={showLoginModalHandler}>Admin</button>
         <h1>Gamers Of Dungeons and Dragons</h1>
         <div className="description">
-        <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+          <p>This is a Website created for Nait's Gamers of Dungeons and Dragons club. It's purpose is to support the club and aid in function.</p>
+        </div>
       </div>
-      </div>
+
+      {showLoginModal && <LoginModal />}
       
       <div className="pills">
         <div className="currentGames-Container">

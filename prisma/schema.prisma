@@ -61,3 +61,8 @@ model GameRequest {
   discord      String
   createdAt    DateTime @default(now()) // Tracks when the request was made
 }
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   
+}
