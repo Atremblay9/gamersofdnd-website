@@ -2,19 +2,24 @@
 
 import CurrentGames from "@/components/currentGames";
 import GameRequestAdmin from "@/components/gameRequestAdmin";
-import InventoryListAdmin from "@/components/inventoryListAdmin";
+import InventoryList from "@/components/inventoryList";
 import InventoryRequestAdmin from "@/components/inventoryRequestAdmin";
+
+import { useRouter } from "next/router";
 
 
 export default function Home() {
+  const router = useRouter();
 
   
-  
+  const routeHome = () => {
+    router.push("/");
+  }
   
   return (
     <div>
       <div className="hero-container">
-        <button className="login">LogOut</button>
+        <button className="login" onClick={routeHome}>LogOut</button>
         <h1>Gamers Of Dungeons and Dragons</h1>
         <div className="description">
           <p>Welcome to the Admin Page, here you can modify/track inventory and running games!</p>
@@ -39,7 +44,7 @@ export default function Home() {
         <div className="inventory">
           <div className="inventory-container">
 
-            <InventoryListAdmin />
+            <InventoryList isDashboard={true} />
           </div>
         </div>
                 <div className="inventoryRequestAdmin">

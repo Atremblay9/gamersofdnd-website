@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 
-export default function GameRequestAdmin() {
+export default function InventoryRequestAdmin() {
 const [requests, setRequests] = useState([]);
 
 useEffect(() => {
@@ -25,7 +25,7 @@ useEffect(() => {
 return (
   <div >
     <ul >
-      {requests &&requests.map((request) => (
+      {requests && requests.map((request) => (
         <li className="gameRequestCard" key={request.id}>
           <p>Name: {request.name || "N/A"}</p>
           <p>Format: {request.itemName || "N/A"}</p>
