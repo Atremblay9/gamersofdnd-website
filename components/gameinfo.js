@@ -6,7 +6,7 @@ export default function GameInfo({ game, isDashboard }) {
   const [editedGame, setEditedGame] = useState({ ...game });
   const [newPlayer, setNewPlayer] = useState("");
 
-  const [currentGame, setCurrentGame] = useState({ sessionName: game.format, format: game.format, DM: game.DM, days: game.days, maxPlayers: game.maxPlayers, archived: false });
+  const [currentGame, setCurrentGame] = useState({ sessionName: game.sessionName, format: game.format, DM: game.DM, days: game.days, maxPlayers: game.maxPlayers, archived: false });
 
   //need to change how the front end views the changed data, remove the on HandleChange to something else? didn't update the game info on the front end when I changed it, at least the DM didn't
 
