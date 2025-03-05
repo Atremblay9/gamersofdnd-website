@@ -6,10 +6,14 @@ export default function GameInfo({ game, isDashboard }) {
   const [editedGame, setEditedGame] = useState({ ...game });
   const [newPlayer, setNewPlayer] = useState("");
 
+  const [currentGame, setCurrentGame] = useState({ sessionName: game.format, format: game.format, DM: game.DM, days: game.days, maxPlayers: game.maxPlayers, archived: false });
+
+  //need to change how the front end views the changed data, remove the on HandleChange to something else? didn't update the game info on the front end when I changed it, at least the DM didn't
+
   useEffect(() => {
   const fetchPlayers = async () => {
     try {
-      setCurrentGamePlayers([]); // Reset before fetching
+      setCurrentGamePlayers([]);//reset before fetching,
       const response = await fetch(`/api/gamePlayers?game_id=${game.id}`);
       const data = await response.json();
       setCurrentGamePlayers([...data.currentGamePlayers]); // Ensure array format
@@ -36,6 +40,15 @@ const handleEditButtonClick = () => setModalOpen(true);
       playerName: newPlayer.trim(),
       game_id: game.id
     };
+    try {
+      fetch('/api/gamePlayers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPlayerObj),
+      });
+    } catch (error) {
+      console.error('Error adding player:', error);
+    }
 
     setCurrentGamePlayers([...currentGamePlayers, newPlayerObj]); 
     setNewPlayer(""); // Reset input field
@@ -45,6 +58,15 @@ const handleEditButtonClick = () => setModalOpen(true);
 
   const handleRemovePlayer = (player) => {
     setCurrentGamePlayers(currentGamePlayers.filter((p) => p !== player));
+    try {
+      fetch('/api/gamePlayers', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: player.id }),
+      });
+    } catch (error) {
+      console.error('Error removing player:', error);
+    }
   };
 
   const handleSubmit = async () => {
@@ -52,11 +74,13 @@ const handleEditButtonClick = () => setModalOpen(true);
       const response = await fetch('/api/games', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...editedGame, currentGamePlayers }),
-      });
+        body: JSON.stringify(editedGame),
+      });//need to fix to allow currentGamePlayers to be sent
       const data = await response.json();
+      setCurrentGame(data);
       console.log('Game updated:', data);
       setModalOpen(false);
+      
     } catch (error) {
       console.error('Error updating game:', error);
     }
@@ -82,14 +106,14 @@ const handleEditButtonClick = () => setModalOpen(true);
     <div className="gameCard">
       <button className='btn-edit' onClick={handleEditButtonClick}>Edit</button>
       <li key={game.id}>
-        <h4>{game.sessionName}</h4>
-        <p>DM: {game.DM}</p>
-        <p>Format: {game.format}</p>
-        <p>Day(s): {game.days}</p>
-        <p>Openings: {game.maxPlayers - currentGamePlayers.length}</p>
+        <h4>{currentGame.sessionName}</h4>
+        <p>DM: {currentGame.DM}</p>
+        <p>Format: {currentGame.format}</p>
+        <p>Day(s): {currentGame.days}</p>
+        <p>Openings: {currentGame.maxPlayers - currentGamePlayers.length}</p>
         <p>Players:</p>
         <ul>
-          {currentGamePlayers.map((player, index) => (
+          {currentGamePlayers.length > 0 &&currentGamePlayers.map((player, index) => (
             <li key={index}>- {player.playerName}</li>
           ))}
         </ul>
